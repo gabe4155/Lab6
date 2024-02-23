@@ -1,19 +1,18 @@
 #include <stdio.h>
 
 int search(int numbers[], int low, int high, int value) {
-	if (low > high) {
-        return -1; // Base case: value not found in the array
-    }
-
+    if (low > high)
+        return -1; 
+    
     int mid = low + (high - low) / 2;
 
-    if (numbers[mid] == value) {
-        return mid; // Value found at the mid index
-    } else if (numbers[mid] < value) {
-        return search(numbers, mid + 1, high, value); // Search the right half of the array
-    } else {
-        return search(numbers, low, mid - 1, value); // Search the left half of the array
-    }
+    if (numbers[mid] == value)
+        return mid; 
+
+    if (numbers[mid] < value)
+        return search(numbers, mid + 1, high, value); 
+    else
+        return search(numbers, low, mid - 1, value); 
 }
 
 
